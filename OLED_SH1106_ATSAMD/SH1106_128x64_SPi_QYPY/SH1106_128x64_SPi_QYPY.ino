@@ -4,8 +4,8 @@
   Pick one up today in the adafruit shop!
   ------> http://www.adafruit.com/category/63_98
 
-  This example is for a 128x64 size display using I2C to communicate
-  3 pins are required to interface (2 I2C and one reset)
+  This example is for a 128x64 size display using SPi to communicate
+  5 pins are required to interface 
 
   Adafruit invests time and resources providing this open source code,
   please support Adafruit and open-source hardware by purchasing
@@ -14,9 +14,11 @@
   Written by Limor Fried/Ladyada  for Adafruit Industries.
   BSD license, check license.txt for more information
   All text above, and the splash screen must be included in any redistribution
+
+ SPi SH1106 QTPY modified by Rupert Hirst (TallmanLabs) 12/09/21
 *********************************************************************/
 
-// SPi SH1106 QTPY example Rupert Hirst (TallmanLabs) 12/09/21
+
 
 #include <SPI.h>
 #include <Wire.h>
@@ -62,9 +64,6 @@ static const unsigned char PROGMEM logo16_glcd_bmp[] =
   B00000000, B00110000
 };
 
-//#if (SH1106_LCDHEIGHT != 64)
-//#error("Height incorrect, please fix Adafruit_SSD1306.h!");
-//#endif
 
 void setup()   {
   Serial.begin(9600);
@@ -73,7 +72,6 @@ void setup()   {
 
   // Start OLED
   display.begin(0, true); // we dont use the i2c address but we will reset!
-
 
 
   // Show image buffer on the display hardware.
@@ -146,16 +144,12 @@ void setup()   {
   delay(2000);
   display.clearDisplay();
 
-  // draw scrolling text
-  testscrolltext();
-  delay(2000);
-  display.clearDisplay();
 
   // text display tests
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(0, 0);
-  display.println("Hello, world!");
+  display.println("Failure is always an option");
   display.setTextColor(SH110X_BLACK, SH110X_WHITE); // 'inverted' text
   display.println(3.141592);
   display.setTextSize(2);
@@ -363,8 +357,4 @@ void testdrawline() {
     delay(1);
   }
   delay(250);
-}
-
-void testscrolltext(void) {
-  // scroll not supported on SH1106
 }

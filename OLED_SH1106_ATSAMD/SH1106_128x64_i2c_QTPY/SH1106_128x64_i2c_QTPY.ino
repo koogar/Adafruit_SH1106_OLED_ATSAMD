@@ -4,7 +4,7 @@
   Pick one up today in the adafruit shop!
   ------> http://www.adafruit.com/category/63_98
 
-  This example is for a 128x32 size display using I2C to communicate
+  This example is for a 128x64 size display using I2C to communicate
   3 pins are required to interface (2 I2C and one reset)
 
   Adafruit invests time and resources providing this open source code,
@@ -14,9 +14,11 @@
   Written by Limor Fried/Ladyada  for Adafruit Industries.
   BSD license, check license.txt for more information
   All text above, and the splash screen must be included in any redistribution
+
+  i2c SH1106 modified by Rupert Hirst (TallmanLabs) 12/09/21
 *********************************************************************/
 
-// i2c SH1106 example Rupert Hirst (TallmanLabs) 12/09/21
+
 
 #include <SPI.h>
 #include <Wire.h>
@@ -139,16 +141,13 @@ void setup()   {
   delay(2000);
   display.clearDisplay();
 
-  // draw scrolling text
-  testscrolltext();
-  delay(2000);
-  display.clearDisplay();
+
 
   // text display tests
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(0, 0);
-  display.println("Hello, world!");
+  display.println("Failure is always an option");
   display.setTextColor(SH110X_BLACK, SH110X_WHITE); // 'inverted' text
   display.println(3.141592);
   display.setTextSize(2);
@@ -356,16 +355,4 @@ void testdrawline() {
     delay(1);
   }
   delay(250);
-}
-
-void testscrolltext(void) {
-  display.setTextSize(2);
-  display.setTextColor(SH110X_WHITE);
-  display.setCursor(10, 0);
-  display.clearDisplay();
-  display.println("scroll");
-  display.display();
-  delay(1);
-
-
 }
