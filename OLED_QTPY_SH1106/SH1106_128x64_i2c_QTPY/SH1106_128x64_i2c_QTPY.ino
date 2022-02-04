@@ -1,8 +1,5 @@
 /*********************************************************************
-  This is an example for our Monochrome OLEDs based on SSD1306 drivers
-
-  Pick one up today in the adafruit shop!
-  ------> http://www.adafruit.com/category/63_98
+  This is an example for our Monochrome OLEDs based on SH110X drivers
 
   This example is for a 128x64 size display using I2C to communicate
   3 pins are required to interface (2 I2C and one reset)
@@ -15,7 +12,7 @@
   BSD license, check license.txt for more information
   All text above, and the splash screen must be included in any redistribution
 
-  i2c SH1106 modified by Rupert Hirst (TallmanLabs) 12/09/21
+  i2c SH1106 modified by Rupert Hirst  12/09/21
 *********************************************************************/
 
 

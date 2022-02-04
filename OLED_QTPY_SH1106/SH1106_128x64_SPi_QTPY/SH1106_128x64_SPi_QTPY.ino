@@ -1,8 +1,5 @@
 /*********************************************************************
-  This is an example for our Monochrome OLEDs based on SSD1306 drivers
-
-  Pick one up today in the adafruit shop!
-  ------> http://www.adafruit.com/category/63_98
+  This is an example for our Monochrome OLEDs based on SH110X drivers
 
   This example is for a 128x64 size display using SPi to communicate
   5 pins are required to interface 
@@ -15,7 +12,7 @@
   BSD license, check license.txt for more information
   All text above, and the splash screen must be included in any redistribution
 
- SPi SH1106 QTPY modified by Rupert Hirst (TallmanLabs) 12/09/21
+  SPi SH1106 modified by Rupert Hirst  12/09/21
 *********************************************************************/
 
 
